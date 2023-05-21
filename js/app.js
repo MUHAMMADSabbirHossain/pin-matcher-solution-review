@@ -8,11 +8,11 @@ function getPin() {
     } else {
         return getPin();
     }
-}
+};
 
 function generatePin() {
     document.getElementById('pin-display').value = getPin();
-}
+};
 
 // keypad
 document.getElementById('key-pad').addEventListener('click', function (event) {
@@ -29,4 +29,22 @@ document.getElementById('key-pad').addEventListener('click', function (event) {
         const newNumber = previouseNumber + number;
         calcInput.value = newNumber;
     }
-})
+});
+
+// verify function
+function verifyPin() {
+    const pin = document.getElementById('pin-display').value;
+    const typedNumbers = document.getElementById('typed-numbers').value;
+    const successMessage = document.getElementById('notify-success');
+    const failError = document.getElementById('notify-fail');
+    console.log(pin)
+    console.log(typedNumbers)
+
+    if (pin == typedNumbers) {
+        successMessage.style.display = 'block';
+        failError.style.display = 'none';
+    } else {
+        failError.style.display = 'block';
+        successMessage.style.display = 'none';
+    }
+}
