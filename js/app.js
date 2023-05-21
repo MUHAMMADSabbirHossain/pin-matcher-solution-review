@@ -13,3 +13,20 @@ function getPin() {
 function generatePin() {
     document.getElementById('pin-display').value = getPin();
 }
+
+// keypad
+document.getElementById('key-pad').addEventListener('click', function (event) {
+    const number = event.target.innerText;
+    console.log(number);
+    const calcInput = document.getElementById('typed-numbers');
+    if (isNaN(number)) {
+        if (number == "C") {
+            calcInput.value = '';
+        }
+    }
+    else {
+        const previouseNumber = calcInput.value;
+        const newNumber = previouseNumber + number;
+        calcInput.value = newNumber;
+    }
+})
